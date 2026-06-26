@@ -31,7 +31,7 @@ nav {
   border-bottom: 1px solid var(--border);
   min-height: 80px;
 }
-.logo img { height: 36px; }
+.logo img { height: 52px; }
 .nav-links { display: flex; gap: 28px; align-items: center; }
 .nav-links a { font-size: 12px; font-weight: 500; color: var(--text2); text-decoration: none; letter-spacing: .04em; text-transform: uppercase; transition: color .2s; }
 .nav-links a:hover { color: var(--text); }
