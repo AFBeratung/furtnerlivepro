@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }
+  section { padding: 64px 20px; }
+  h1 { font-size: 34px; }
+  .how-grid, .benefits-grid, .pricing-grid, .add-on-grid { grid-template-columns: 1fr; }
+  .hero { padding: 100px 20px 60px; }
+  .tech-strip { padding: 14px 20px; }
+  footer { padding: 28px 20px; flex-direction: column; text-align: center; }
+  .stage-meta { flex: 0 0 110px; }
+}
