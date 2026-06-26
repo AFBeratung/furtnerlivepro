@@ -8,6 +8,50 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/responsive.css">
+<style>
+  .contact-main { max-width: 1000px; margin: 0 auto; padding: 140px 48px 96px; display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+  .contact-info h2 { font-family: var(--serif); font-size: 24px; color: var(--text); margin-bottom: 8px; }
+  .contact-info > p { font-size: 14px; color: var(--text2); line-height: 1.7; margin-bottom: 24px; }
+  .contact-item { display: flex; align-items: flex-start; gap: 16px; padding: 18px 20px; background: #fff; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 2px 16px rgba(0,0,0,.07); transition: border-color .2s; }
+  .contact-item:hover { border-color: var(--border2); }
+  .contact-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(26,79,214,.08); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .contact-detail h4 { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text3); margin-bottom: 4px; }
+  .contact-detail a, .contact-detail p { font-size: 14px; color: var(--text); text-decoration: none; font-weight: 500; }
+  .contact-detail a:hover { color: var(--accent); }
+  .contact-detail .sub { font-size: 12px; color: var(--text3); font-weight: 400; margin-top: 2px; }
+  .trust-items { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+  .trust-item2 { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text3); }
+  .trust-dot2 { width: 6px; height: 6px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  .form-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 40px 36px; box-shadow: 0 2px 16px rgba(0,0,0,.07); }
+  .form-card h3 { font-family: var(--serif); font-size: 22px; color: var(--text); margin-bottom: 6px; }
+  .form-card > p { font-size: 13px; color: var(--text3); margin-bottom: 28px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--text3); margin-bottom: 7px; }
+  .form-group label span { color: var(--accent); }
+  .form-input, .form-select, .form-textarea { width: 100%; padding: 12px 16px; border: 1px solid var(--border2); border-radius: 6px; background: var(--dark); font-family: var(--sans); font-size: 14px; color: var(--text); outline: none; transition: border-color .2s, box-shadow .2s; }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26,79,214,.08); background: #fff; }
+  .form-textarea { resize: vertical; min-height: 130px; }
+  .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7083' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; cursor: pointer; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .checkbox-group { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
+  .checkbox-group input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--accent); margin-top: 2px; cursor: pointer; }
+  .checkbox-group label { font-size: 12px; color: var(--text3); line-height: 1.6; cursor: pointer; }
+  .checkbox-group label a { color: var(--accent); text-decoration: none; }
+  .checkbox-group label a:hover { text-decoration: underline; }
+  .btn-submit { width: 100%; padding: 14px; border: none; border-radius: 6px; background: var(--accent); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
+  .btn-submit:hover { background: #3a7ae8; transform: translateY(-1px); }
+  .btn-submit:disabled { background: var(--text3); cursor: not-allowed; transform: none; }
+  .success-msg { display: none; text-align: center; padding: 32px; background: rgba(26,122,74,.06); border: 1px solid rgba(26,122,74,.2); border-radius: 8px; margin-top: 20px; }
+  .success-msg .icon { font-size: 40px; margin-bottom: 12px; }
+  .success-msg h4 { font-family: var(--serif); font-size: 20px; color: var(--text); margin-bottom: 8px; }
+  .success-msg p { font-size: 14px; color: var(--text2); }
+  @media (max-width: 768px) {
+    .contact-main { grid-template-columns: 1fr; padding: 100px 20px 64px; gap: 32px; }
+    .form-card { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
 
@@ -23,37 +67,125 @@
   </div>
 </nav>
 
-<section style="padding: 140px 48px 96px; max-width: 720px;">
-  <p class="section-label">Kontakt</p>
-  <h2 class="section-title">Lassen Sie uns sprechen</h2>
-  <p class="section-sub" style="margin-bottom:40px;">Kontaktieren Sie uns über das Formular oder direkt per E-Mail — wir melden uns innerhalb von 24 Stunden und vereinbaren Ihre persönliche Testübertragung.</p>
+<div class="contact-main">
 
-  <form style="display:flex; flex-direction:column; gap:16px;" onsubmit="return false;">
+  <div class="contact-info">
     <div>
-      <label style="font-size:12px; font-weight:600; color:var(--text2); display:block; margin-bottom:6px;">Name</label>
-      <input type="text" name="name" required style="width:100%; padding:12px 14px; border:1px solid var(--border2); border-radius:4px; font-family:var(--sans); font-size:14px;">
+      <h2>Der direkte Weg zu uns</h2>
+      <p>Kein Callcenter, kein Ticket-System. Sie erreichen Andreas Furtner direkt — persönlich, schnell und unkompliziert.</p>
     </div>
-    <div>
-      <label style="font-size:12px; font-weight:600; color:var(--text2); display:block; margin-bottom:6px;">E-Mail</label>
-      <input type="email" name="email" required style="width:100%; padding:12px 14px; border:1px solid var(--border2); border-radius:4px; font-family:var(--sans); font-size:14px;">
-    </div>
-    <div>
-      <label style="font-size:12px; font-weight:600; color:var(--text2); display:block; margin-bottom:6px;">Einrichtung</label>
-      <input type="text" name="organisation" style="width:100%; padding:12px 14px; border:1px solid var(--border2); border-radius:4px; font-family:var(--sans); font-size:14px;">
-    </div>
-    <div>
-      <label style="font-size:12px; font-weight:600; color:var(--text2); display:block; margin-bottom:6px;">Nachricht</label>
-      <textarea name="message" rows="5" required style="width:100%; padding:12px 14px; border:1px solid var(--border2); border-radius:4px; font-family:var(--sans); font-size:14px; resize:vertical;"></textarea>
-    </div>
-    <button type="submit" class="btn-primary" style="width:fit-content; border:none; cursor:pointer;">Nachricht senden →</button>
-  </form>
 
-  <div style="margin-top:48px; padding-top:32px; border-top:1px solid var(--border);">
-    <p style="font-size:13px; font-weight:600; color:var(--text); margin-bottom:8px;">Direkter Kontakt</p>
-    <p style="font-size:13px; color:var(--text2);">Andreas Furtner · Passau, Bayern</p>
-    <p style="font-size:13px; color:var(--text2);">E-Mail: <a href="mailto:info@furtnerlivepro.de" style="color:var(--accent);">info@furtnerlivepro.de</a></p>
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div class="contact-detail">
+        <h4>Telefon</h4>
+        <a href="tel:+4915115555466">0151 15555466</a>
+        <p class="sub">Mo–Fr · 9:00–16:00 Uhr</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-detail">
+        <h4>E-Mail</h4>
+        <a href="mailto:info@it-beratung.info">info@it-beratung.info</a>
+        <p class="sub">Antwort innerhalb von 24h</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div class="contact-detail">
+        <h4>Standort</h4>
+        <p>Thyrnau · Bayern</p>
+        <p class="sub">Vor-Ort-Betreuung in ganz Bayern möglich</p>
+      </div>
+    </div>
+
+    <div class="trust-items">
+      <div class="trust-item2"><div class="trust-dot2"></div>Keine Weitergabe Ihrer Daten</div>
+      <div class="trust-item2"><div class="trust-dot2"></div>Persönliches Gespräch, kein Callcenter</div>
+      <div class="trust-item2"><div class="trust-dot2"></div>Antwort innerhalb von 24 Stunden</div>
+      <div class="trust-item2"><div class="trust-dot2"></div>Testübertragung auf Anfrage kostenlos</div>
+    </div>
   </div>
-</section>
+
+  <div class="form-card">
+    <h3>Nachricht senden</h3>
+    <p>Formular ausfüllen — wir melden uns innerhalb von 24–48 Stunden.</p>
+
+    <form id="contactForm" novalidate>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Vorname <span>*</span></label>
+          <input type="text" class="form-input" placeholder="Max" required id="firstName">
+        </div>
+        <div class="form-group">
+          <label>Nachname <span>*</span></label>
+          <input type="text" class="form-input" placeholder="Mustermann" required id="lastName">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Organisation / Gemeinde / Verein</label>
+        <input type="text" class="form-input" placeholder="z.B. Gemeinde Musterhausen" id="organisation">
+      </div>
+
+      <div class="form-group">
+        <label>E-Mail <span>*</span></label>
+        <input type="email" class="form-input" placeholder="ihre@email.de" required id="email">
+      </div>
+
+      <div class="form-group">
+        <label>Telefon</label>
+        <input type="tel" class="form-input" placeholder="+49 151 ..." id="phone">
+      </div>
+
+      <div class="form-group">
+        <label>Paket-Interesse</label>
+        <select class="form-select" id="paket">
+          <option value="">Bitte wählen (optional)</option>
+          <option value="Starter — 57 € / Monat (bis 50 Zuschauer)">Starter — 57 € / Monat (bis 50 Zuschauer)</option>
+          <option value="Regional — 97 € / Monat (bis 100 Zuschauer)">Regional — 97 € / Monat (bis 100 Zuschauer)</option>
+          <option value="Professional — 147 € / Monat (bis 150 Zuschauer)">Professional — 147 € / Monat (bis 150 Zuschauer)</option>
+          <option value="RTC Echtzeit-Streaming (unter 2 Sekunden Verzögerung)">RTC Echtzeit-Streaming (unter 2 Sekunden Verzögerung)</option>
+          <option value="Enterprise — individuell">Enterprise — individuell</option>
+          <option value="Erst kostenlose Testübertragung anfragen">Erst kostenlose Testübertragung anfragen</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Nachricht <span>*</span></label>
+        <textarea class="form-textarea" placeholder="Beschreiben Sie kurz Ihren Anwendungsfall — z.B. Art der Veranstaltung, geplante Häufigkeit, technische Fragen..." required id="message"></textarea>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="privacy" required>
+        <label for="privacy">
+          Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. <span style="color:var(--accent)">*</span>
+        </label>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="sms">
+        <label for="sms">
+          Ich willige ein, gelegentliche Informationen von FurtnerLive Pro per WhatsApp/SMS zu erhalten. Abmeldung jederzeit per STOP an <a href="tel:+4915115555466">0151 15555466</a>.
+        </label>
+      </div>
+
+      <button type="button" class="btn-submit" id="sendBtn" onclick="sendEmail()">Nachricht senden &rarr;</button>
+
+    </form>
+
+    <div class="success-msg" id="successMsg">
+      <div class="icon">✅</div>
+      <h4>Ihr E-Mail-Programm wird geöffnet!</h4>
+      <p>Bitte senden Sie die vorausgefüllte E-Mail ab.<br>Wir melden uns innerhalb von 24 Stunden.</p>
+    </div>
+  </div>
+
+</div>
 
 <footer>
   <a href="../index.html" class="footer-logo"><img src="../assets/logo.png" alt="FurtnerLive Pro"></a>
@@ -66,5 +198,49 @@
 </footer>
 
 <script src="../js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("EipnoeTIV2o-JSI_B");
+
+function sendEmail() {
+  var btn = document.getElementById("sendBtn");
+  var firstName    = document.getElementById("firstName").value.trim();
+  var lastName     = document.getElementById("lastName").value.trim();
+  var email        = document.getElementById("email").value.trim();
+  var phone        = document.getElementById("phone").value.trim();
+  var organisation = document.getElementById("organisation").value.trim();
+  var paket        = document.getElementById("paket").value;
+  var message      = document.getElementById("message").value.trim();
+  var privacy      = document.getElementById("privacy").checked;
+
+  if (!firstName || !lastName) { alert("Bitte Vor- und Nachname angeben."); return; }
+  if (!email) { alert("Bitte E-Mail angeben."); return; }
+  if (!message) { alert("Bitte Nachricht eingeben."); return; }
+  if (!privacy) { alert("Bitte Datenschutz bestaetigen."); return; }
+
+  btn.disabled = true;
+  btn.textContent = "Wird gesendet...";
+
+  var templateParams = {
+    from_name:    firstName + " " + lastName,
+    from_email:   email,
+    phone:        phone || "-",
+    organisation: organisation || "-",
+    paket:        paket || "-",
+    message:      message
+  };
+
+  emailjs.send("service_vzlb2rt", "template_s4l6x35", templateParams)
+    .then(function() {
+      document.getElementById("contactForm").style.display = "none";
+      document.getElementById("successMsg").style.display = "block";
+    }, function(error) {
+      btn.disabled = false;
+      btn.textContent = "Nachricht senden";
+      alert("Fehler beim Senden. Bitte direkt mailen: info@it-beratung.info");
+      console.error("EmailJS Fehler:", error);
+    });
+}
+</script>
 </body>
 </html>

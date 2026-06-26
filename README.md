@@ -32,5 +32,6 @@ furtnerlivepro/
 ## Offene Punkte
 
 - `assets/logo.png` muss noch hochgeladen werden (aktuell als Platzhalterpfad referenziert).
-- Inhalte von `impressum.html`, `datenschutz.html` und `agb.html` sind Platzhalter und müssen rechtlich geprüft/ergänzt werden.
-- Das Kontaktformular in `pages/kontakt.html` hat noch keine Backend-Anbindung (`action`/Mailhandler fehlt).
+- `impressum.html` und `datenschutz.html` enthalten die vom Betreiber bereitgestellten echten Inhalte.
+- `agb.html` enthält nur den vom Betreiber bereitgestellten Schlussteil (§5–§6); §1–§4 sind weiterhin Platzhalter und müssen durch den vollständigen Originaltext ersetzt werden.
+- Das Kontaktformular in `pages/kontakt.html` ist über EmailJS angebunden (kein eigenes Backend).
